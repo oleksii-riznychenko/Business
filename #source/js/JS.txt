@@ -1,0 +1,42 @@
+Для подключения в файл Vendors.js 
+
+//@prepros-append ../../js/fancybox/jquery.fancybox.pack.js
+//@prepros-append jquery.animateNumber.min.js               - анимирования цифр с (0 до 100)
+//@prepros-append jquery.form.min.js
+//@prepros-append jquery.popover.min.js                     - всплывающий текст при навидении(placeholder)
+//@prepros-append jquery.inputmask.bundle.min.js            - маски для input (+38-000_000_00_00)
+//@prepros-append jquery.nicescroll.min.js                  - скролл для тега select
+//@prepros-append jquery.ui.touch-punch.min.js              - для работы скриптов на тачскрине
+//@prepros-append jquery.mousewheel.min.js                  - отслеживание колёсика мыши (для программистов)
+//@prepros-append jquery.autosize.input.min.js              - позволяет input увеличиваться в размере в зависимости от текста
+//@prepros-append jquery.ns-autogrow.min.js                 - позволяет textarea увеличиваться в размере в зависимости от текста
+//@prepros-append jquery.parallax.js                        - большая библиотека для паралакса (редко используеться)
+//@prepros-append baguetteBox.js                            - галерея картинок с увеличением
+//@prepros-append isotope.pkgd.min.js                       - для выстраивания в плитки блоков картинок (таблица мендилеева)
+//@prepros-append livesearch.js
+//@prepros-append slick.min.js                              - slick слайдер (использовать в месте с файлом sliders.js)
+//@prepros-append typed.min.js
+
+
+Для подключения в файл Main.js 
+
+//@prepros-append map.js                                    - подключение карт (гугл,яндекс)
+//@prepros-append sliders.js                                - вспомогательный файл для slick слайдера
+//@prepros-append scroll.js                                 - добавление классов блокам по мере прокручивания страницы (в html добавить блоку класс sector)
+//@prepros-append fullscroll.js                            
+//@prepros-append responsive.js                             - для динамического адаптива(для переброски блоков на телефонах)
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/jquery.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/TextPlugin.min.js"></script>
+
+
+Для подключения в файл js.kit 
+
+<script src="https://maps.google.com/maps/api/js?sensor=false&amp;key=AIzaSyAe2qamce_RVw-APqN7EqsaGZ2Cm5Zciss"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=88450800-c3cf-4124-9321-04e971d0c3d8&lang=ru_RU" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- async -->

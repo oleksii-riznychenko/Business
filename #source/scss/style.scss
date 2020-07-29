@@ -1,0 +1,524 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//	anim(время анимации, время задержки)
+//	anim_cubic(время анимации, время задержки)
+//	animate(имя анимации, время анимации, infinite, тип анимации)
+//	rotate(угол наклона)
+//	scale(размер увеличения)
+//	skew(угол искажения блока)
+//	cnt(высота блока) - flex колонки с выравниванием по центру
+//	tr(x,y,z) - translate3d
+//	flexbox() - display: flex
+//	flexboxinline() - display: inline-flex
+//	flexorder(порядковый номер)
+//	@include anim(0.8s,0s); -пример подключения
+//</МИКСИНЫ >===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+/* font-family: 'PT Serif', serif; */
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Montserrat";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px; //минимальная ширина iphone 5
+$mw: 1170; //ширина контентной части
+$md1: $mw + 12; //первый брэкпоинт (ширина контентной части + 12px)
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.content {
+	background-color: #fff;
+}
+.bluebg {
+	position: relative;
+	overflow: hidden;
+	&:after {
+		content: "";
+		@include rotate(18deg);
+		position: absolute;
+		width: 35%;
+		height: 130%;
+		left: -50px;
+		top: -95px;
+		background-image: linear-gradient(198deg, #007397 0%, rgba(0, 115, 151, 0) 100%);
+	}
+}
+.block-title {
+	min-height: 411px;
+	position: relative;
+	width: 100%;
+	padding: 40px 40px 90px 40px;
+	@include flexbox();
+	justify-content: flex-end;
+	@media (max-width: $md2+px) {
+		justify-content: center;
+	}
+	@media (max-width: $md2+px) {
+		padding: 40px 40px 40px 40px;
+	}
+	@media (max-width: $md4+px) {
+		padding: 20px 10px;
+	}
+	&__text {
+		align-self: flex-end;
+		width: 730px;
+		text-shadow: 0 3px 1px rgba(0, 0, 0, 0.6);
+		color: #ffffff;
+		font-family: "PT Serif", serif;
+		font-size: 32px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		line-height: 48px;
+		z-index: 1;
+		text-transform: uppercase;
+		@media (max-width: $md1+px) {
+			width: 500px;
+		}
+		@media (max-width: $md2+px) {
+			font-size: 22px;
+			width: 100%;
+			align-self: center;
+			text-align: justify;
+		}
+		@media (max-width: $md3+px) {
+			text-align: center;
+		}
+		@media (max-width: $md4+px) {
+			font-size: 17px;
+		}
+	}
+}
+.subtitle {
+	color: #646667;
+	font-family: "Montserrat";
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 36px;
+}
+.block-main-text {
+	padding: 50px 100px 50px 100px;
+	&__row {
+		@include flexbox();
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+	}
+	&__column {
+		@include flexbox();
+		width: 100%;
+		justify-content: center;
+	}
+
+	&__text {
+		padding: 0px 0px 50px 0px;
+		@media (max-width: $md2+px) {
+			font-size: 16px;
+			padding: 0px 0px 30px 0px;
+		}
+	}
+	&__btn {
+		@media (max-width: $md2+px) {
+			font-size: 14px;
+		}
+		@media (max-width: $md4+px) {
+			padding: 10px 15px;
+			font-size: 10px;
+		}
+	}
+	@media (max-width: $md2+px) {
+		padding: 40px 60px 40px 60px;
+	}
+	@media (max-width: $md3+px) {
+		padding: 40px 15px 40px 15px;
+	}
+	@media (max-width: $md4+px) {
+		padding: 20px 15px 20px 15px;
+	}
+}
+.title {
+	color: #3c3f3d;
+	font-family: "PT Serif";
+	font-size: 32px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 48px;
+	text-transform: uppercase;
+	@media (max-width: $md4+px) {
+		font-size: 24px;
+	}
+}
+.block-investor {
+	padding: 60px 0px 60px 0px;
+	@media (max-width: $md4+px) {
+		padding: 30px 0px 30px 0px;
+	}
+	&__row {
+		@include flexbox();
+		flex-direction: column;
+	}
+	&__column {
+		margin: 0px 0px 60px 0px;
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+			@media (max-width: $md4+px) {
+				text-align: center;
+			}
+		}
+		@media (max-width: $md3+px) {
+			margin: 0px 0px 25px 0px;
+		}
+		@media (max-width: $md4+px) {
+			margin: 0px 0px 10px 0px;
+		}
+	}
+	&__text {
+		width: 670px;
+		@media (max-width: $md3+px) {
+			width: 100%;
+			font-size: 16px;
+		}
+		@media (max-width: $md4+px) {
+			padding: 0px 15px 0px 15px;
+		}
+	}
+	&__btn {
+		@media (max-width: $md2+px) {
+			font-size: 14px;
+		}
+		@media (max-width: $md4+px) {
+			padding: 10px 15px;
+			font-size: 10px;
+		}
+	}
+
+	.block-investor-info {
+		@include flexbox();
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: $md4+px) {
+			flex-direction: column;
+		}
+		&__items {
+			flex: 0 0 33.333%;
+		}
+		&__row {
+			@include flexbox();
+			justify-content: space-around;
+			@media (max-width: $md2+px) {
+				flex-direction: column;
+			}
+		}
+		&__col {
+			@include flexbox();
+			flex-direction: column;
+			text-align: center;
+		}
+		&__number {
+			color: #007397;
+			font-family: "PT Serif";
+			font-size: 54px;
+			font-weight: 400;
+			line-height: 54px;
+			text-transform: uppercase;
+			@media (max-width: $md3+px) {
+				font-size: 30px;
+			}
+		}
+		&__definition {
+			color: #aec3d4;
+			font-family: "Montserrat";
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 32px;
+			@media (max-width: $md3+px) {
+				font-size: 13px;
+			}
+		}
+	}
+}
+.block-card {
+	padding: 50px 0px 50px 0px;
+	&__row {
+		@include flexbox();
+		align-items: center;
+		&--top {
+			justify-content: space-between;
+			@media (max-width: 550px) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+	}
+	.block-card-title-col {
+		&__title {
+		}
+		&--bottom {
+			@media (max-width: 550px) {
+				width: 100%;
+				justify-content: center;
+				margin: 30px 0px 0px 0px;
+			}
+			@media (max-width: $md4+px) {
+				margin: 15px 0px 0px 0px;
+			}
+		}
+	}
+	.block-card-title-menu {
+		@include flexbox();
+		@media (max-width: 550px) {
+			justify-content: center;
+		}
+		&__item {
+			margin: 0px 80px 0px 0px;
+			a {
+				color: #d3cfce;
+				font-family: "Montserrat";
+				font-size: 16px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 16px;
+				text-transform: uppercase;
+				@media (max-width: $md3+px) {
+					font-size: 12px;
+				}
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			&.active {
+				a {
+					color: #007397;
+				}
+			}
+			@media (max-width: $md3+px) {
+				margin: 0px 25px 0px 0px;
+			}
+			&:last-child {
+				margin: 0px 0px 0px 0px;
+			}
+		}
+	}
+	.block-card-items {
+		margin: 60px 0px 0px 0px;
+		width: 370px;
+		@media (max-width: $md2+px) {
+			width: 360px;
+		}
+		@media (max-width: 550px) {
+			&:first-child {
+				margin: 20px 0px 0px 0px;
+			}
+		}
+		@media (max-width: $md4+px) {
+			width: 280px;
+		}
+
+		&__text {
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			margin: 40px 0px 40px 0px;
+			color: #646667;
+			font-family: "Montserrat";
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 32px;
+			max-height: 200px;
+			@media (max-width: $md3+px) {
+				font-weight: 300;
+				margin: 30px 0px 20px 0px;
+			}
+		}
+		&__link {
+			a {
+				color: #007397;
+				font-family: "Montserrat";
+				font-size: 16px;
+				font-weight: 700;
+				letter-spacing: 1px;
+				line-height: 16px;
+				text-transform: uppercase;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.block-images {
+		width: 370px;
+		display: block;
+		height: 370px;
+		position: relative;
+		z-index: 2;
+		@media (max-width: $md2+px) {
+			width: 360px;
+			height: 360px;
+		}
+		@media (max-width: $md4+px) {
+			width: 280px;
+			height: 280px;
+		}
+		&__title {
+			display: block;
+			color: #ffffff;
+			font-family: "Montserrat";
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 0.75px;
+			line-height: 16px;
+			text-transform: uppercase;
+			z-index: 5;
+			margin: 0px 0px 200px 0px;
+			@media (max-width: $md4+px) {
+				font-size: 10px;
+				margin: 0px 0px 120px 0px;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		&__subtitle {
+			display: block;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			color: #ffffff;
+			font-family: "Montserrat";
+			font-size: 24px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			line-height: 32px;
+			text-transform: uppercase;
+			z-index: 5;
+			@media (max-width: $md2+px) {
+				font-size: 20px;
+			}
+			@media (max-width: $md4+px) {
+				font-size: 14px;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.block-images-body {
+			background: url(../img/block_card/02.svg) 0 0 / cover no-repeat;
+			width: 100%;
+			height: 100%;
+			z-index: 4;
+			position: relative;
+			padding: 25px 30px 25px 30px;
+		}
+	}
+	@media (max-width: $md4+px) {
+		padding: 20px 0px 30px 0px;
+	}
+}
+.card {
+	@include flexbox();
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	@media (max-width: $md3+px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.block-map {
+	padding: 50px 0px 0px 0px;
+	@media (max-width: $md4+px) {
+		padding: 20px 0px 0px 0px;
+	}
+	&__row {
+		@include flexbox();
+		flex-direction: column;
+	}
+	&__col {
+		width: 100%;
+	}
+	&__map {
+		margin: 50px 0px 0px 0px;
+		height: 448px;
+		@media (max-width: $md4+px) {
+			height: 340px;
+			margin: 20px 0px 0px 0px;
+		}
+	}
+}
+//====================================================================================================
+//</ОСНОВНОЙ БЛОК>====================================================================================================
